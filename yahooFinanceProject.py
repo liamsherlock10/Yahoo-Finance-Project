@@ -12,3 +12,5 @@ NVDA_History = NVIDIA.history(start="2024-12-24", end="2025-12-24", interval="1d
 
 NVDA_History.to_csv("NVDA-History.csv")
 
+
+print("master is now the default version")
