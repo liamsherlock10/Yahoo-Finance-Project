@@ -4,31 +4,19 @@ Yahoo Finance API Sandbox file
 
 import yfinance as yf
 import pandas as pd
-import quandl
-import nasdaqdatalink
-import os
-from dotenv import load_dotenv
-
-
-
-load_dotenv()
-api_key = os.getenv("NASDAQ_API_KEY")
-print(f"Your API key is loaded: {api_key}")
 
 
 
 NVIDIA = yf.Ticker("NVDA")
 nvidiaInfo = NVIDIA.info
 price = nvidiaInfo['ask']
-
 for i in nvidiaInfo:
     if 'market' in i:
         print(i)
-
-
 NVDA_History = NVIDIA.history(start="2024-12-24", end="2025-12-24", interval="1d")
-
 NVDA_History.to_csv("NVDA-History.csv")
+
+
 
 
 
