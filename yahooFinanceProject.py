@@ -4,16 +4,30 @@ Yahoo Finance API Sandbox file
 
 import yfinance as yf
 import pandas as pd
-
-
+import numpy as np
+import sklearn
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
 
 NVIDIA = yf.Ticker("NVDA")
 nvidiaInfo = NVIDIA.info
 price = nvidiaInfo['ask']
-for i in nvidiaInfo:
-    if 'market' in i:
-        print(i)
-NVDA_History = NVIDIA.history(start="2024-12-24", end="2025-12-24", interval="1d")
+
+
+NVDA_History = NVIDIA.history(start="2024-12-24", end="2025-12-24", interval="60m")
+NVDA_History['Hour'] = np.arange(len(NVDA_History))
+NVDA_History['CloseDiff'] = NVDA_History['Close'].diff()
+NVDA_History = NVDA_History.drop(['Open', 'High', 'Low'], axis=1)
+NVDA_History['Close'] = NVDA_History['Close'].round(2)
+
+print(NVDA_History)
+
+has_non_zeros = (NVDA_History['Dividends'] != 0).any()
+
+NVDA_History.plot(kind='line', x='Hour', y='Close', title='Price over time')
+plt.show()
+
 NVDA_History.to_csv("NVDA-History.csv")
 
 

@@ -1,4 +1,4 @@
-#!/Users/liamsherlock/Documents/yahooFinanceProject/venv/bin/python3.11
+#!/Users/liamsherlock/Documents/yahooFinanceProjectFolder/venv/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys
