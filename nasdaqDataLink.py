@@ -1,7 +1,22 @@
+'''
+This will probably be deleted at some point. We have decided to use yfinance and alphavantage. If we need something else and
+we want to look at APIs again, maybe we can go back. 
+
+I don't think we even have an API Key stored for nasdaqdatalink right now. 
+'''
+
+
+
+
+
+
+
+
+
 #import quandl
-import nasdaqdatalink
-import os
-from dotenv import load_dotenv
+#import nasdaqdatalink
+#import os
+#from dotenv import load_dotenv
 
 
 '''
